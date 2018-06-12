@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace arkanoid
+namespace Arkanoid_3
 {
     public abstract class Component
     {

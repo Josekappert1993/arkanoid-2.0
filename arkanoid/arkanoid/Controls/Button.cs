@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace arkanoid.Controls
+namespace Arkanoid_3.Controls
 {
     public class Button : Component
     {
@@ -51,6 +51,11 @@ namespace arkanoid.Controls
             _font = font;
             PenColor = Color.Black;
         }
+
+        public Button()
+        {
+        }
+
         public override void Draw(GameTime gameTime, SpriteBatch spritebatch)
         {
             var colour = Color.AntiqueWhite;
@@ -78,7 +83,7 @@ namespace arkanoid.Controls
             if (mouseRectangle.Intersects(Rectangle))
             {
                 _isHovering = true;
-                if(_currentmousestate.LeftButton == ButtonState.Released && _previousmousestate.LeftButton == ButtonState.Pressed)
+                if (_currentmousestate.LeftButton == ButtonState.Released && _previousmousestate.LeftButton == ButtonState.Pressed)
                 {
                     Click?.Invoke(this, new EventArgs());
                 }

@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3C583445-4090-47BF-81D1-A9198CE657E6}</ProjectGuid>
+    <ProjectGuid>{44F99A48-CB49-4C89-BA54-5A60E82CDEC7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>arkanoid</RootNamespace>
-    <AssemblyName>arkanoid</AssemblyName>
+    <RootNamespace>Arkanoid_3</RootNamespace>
+    <AssemblyName>Arkanoid-3</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -46,6 +46,11 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="States\CreditState.cs" />
+    <Compile Include="States\GameState.cs" />
+    <Compile Include="States\MenuState.cs" />
+    <Compile Include="States\OptionState.cs" />
+    <Compile Include="States\State.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

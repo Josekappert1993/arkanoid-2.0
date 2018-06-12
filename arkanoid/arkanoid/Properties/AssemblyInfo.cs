@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("arkanoid")]
-[assembly: AssemblyProduct("arkanoid")]
+[assembly: AssemblyTitle("Arkanoid-3")]
+[assembly: AssemblyProduct("Arkanoid-3")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCompany("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e5397129-aebe-405c-bfb3-3e405d89d7c9")]
+[assembly: Guid("8e0d6eea-2d18-4605-b107-b8a00c7db864")]
 
 // Version information for an assembly consists of the following four values:
 //

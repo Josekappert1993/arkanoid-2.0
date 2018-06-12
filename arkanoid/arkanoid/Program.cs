@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace arkanoid
+namespace Arkanoid_3
 {
 #if WINDOWS || LINUX
     /// <summary>

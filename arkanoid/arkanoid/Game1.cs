@@ -1,10 +1,9 @@
-﻿using arkanoid.Controls;
+﻿using Arkanoid_3.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
 
-namespace arkanoid
+namespace Arkanoid_3
 {
     /// <summary>
     /// This is the main type for your game.
@@ -14,8 +13,13 @@ namespace arkanoid
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private Color _backgroundcolor = Color.DarkGoldenrod;
-        private List<Component> _gamecomponents;
+        private State _currentState;
+        private State _nextState;
+
+        public void ChangeState(State state)
+        {
+            _nextState = state;
+        }
 
         public Game1()
         {
@@ -45,39 +49,7 @@ namespace arkanoid
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            var randomButton = new Button(Content.Load<Texture2D>("Controls/Button"), Content.Load<SpriteFont>("Fonts/font"))
-            {
-                Position = new Vector2(150, 50),
-                Text = "Random",
-            };
-
-            randomButton.Click += RandomButton_Click;
-            var quitButton = new Button(Content.Load<Texture2D>("Controls/Button"), Content.Load<SpriteFont>("Fonts/font"))
-            {
-                Position = new Vector2(150, 200),
-                Text = "Quit",
-            };
-
-            quitButton.Click += QuitButton_Click; ;
-            _gamecomponents = new List<Component>()
-            {
-                randomButton,
-                quitButton,
-            };
-
-            // TODO: use this.Content to load your game content here
-        }
-
-        private void QuitButton_Click(object sender, System.EventArgs e)
-        {
-            Exit();
-        }
-
-        private void RandomButton_Click(object sender, System.EventArgs e)
-        {
-            var random = 1;
-            _backgroundcolor = new Color(random = random+1, random = random+2, random = random+3);
-
+            _currentState = new MenuState(this, graphics.GraphicsDevice, Content);
         }
 
         /// <summary>
@@ -96,8 +68,14 @@ namespace arkanoid
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            foreach (var component in _gamecomponents)
-                component.Update(gameTime);
+            if(_nextState != null)
+            {
+                _currentState = _nextState;
+
+                _nextState = null;
+            }
+            _currentState.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -107,14 +85,9 @@ namespace arkanoid
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(_backgroundcolor);
+            GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
-
-            foreach (var component in _gamecomponents)
-                component.Draw(gameTime, spriteBatch);
-
-            spriteBatch.End();
+            _currentState.Draw(gameTime, spriteBatch); 
 
             base.Draw(gameTime);
         }
