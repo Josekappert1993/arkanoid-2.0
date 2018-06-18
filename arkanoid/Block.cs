@@ -1,19 +1,47 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-public enum Color { Black = 0, Yellow, Blue, Green, Purple };
+public enum Color { Black, Yellow, Blue, Green, Purple };
 public class Block
 {
+    protected string textureName = "";
+    protected Texture2D texture;
+    protected Game game;
     private int hitCount;
     private int maxHits;
     Color _color;
-	public Block(int maxHits, Color _color)
-	{
-        this.maxHits = maxHits;
-        this._color = _color;
-	}
 
-    public void setMaxHits(int maxHits)
+    public Block(Color color)
+	{
+        setMaxHits(color);
+
+
+    }
+
+    public void setMaxHits(Color color)
     {
+        color = setColor(color);
+        switch (color) {
+            case Black:
+                maxHits = 1;
+                break;
+            case Yellow:
+                maxHits = 8;
+                break;
+            case Blue:
+                maxHits = 3;
+                break;
+            case Green:
+                maxHits = 2;
+                break;
+            case Purple:
+                maxHits = 6;
+                break;
+            
+        }
        
     }
 
