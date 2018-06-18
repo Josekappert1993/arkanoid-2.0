@@ -21,28 +21,28 @@ namespace Arkanoid_3.States
 
             var startGameButton = new Button(buttontexture, buttonFont)
             {
-                Position = new Vector2(150, 10),
+                Position = new Vector2(800, 210),
                 Text = "Start Game",
             };
             startGameButton.Click += StartGameButton_Click;
 
             var optionGameButton = new Button(buttontexture, buttonFont)
             {
-                Position = new Vector2(150, 120),
+                Position = new Vector2(800, 350),
                 Text = "Options",
             };
             optionGameButton.Click += OptionGameButton_Click;
 
             var creditGameButton = new Button(buttontexture, buttonFont)
             {
-                Position = new Vector2(150, 230),
+                Position = new Vector2(800, 500),
                 Text = "Credits",
             };
             creditGameButton.Click += CreditGameButton_Click;
 
             var quitGameButton = new Button(buttontexture, buttonFont)
             {
-                Position = new Vector2(150, 340),
+                Position = new Vector2(800, 650),
                 Text = "Quit Game",
             };
             quitGameButton.Click += QuitGameButton_Click;

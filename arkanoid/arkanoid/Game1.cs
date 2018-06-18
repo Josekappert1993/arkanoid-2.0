@@ -36,7 +36,9 @@ namespace Arkanoid_3
         protected override void Initialize()
         {
             IsMouseVisible = true;
-
+            graphics.PreferredBackBufferWidth = 2000;
+            graphics.PreferredBackBufferHeight = 1000;
+            graphics.ApplyChanges();
             base.Initialize();
         }
 
@@ -50,15 +52,6 @@ namespace Arkanoid_3
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             _currentState = new MenuState(this, graphics.GraphicsDevice, Content);
-        }
-
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// game-specific content.
-        /// </summary>
-        protected override void UnloadContent()
-        {
-            // TODO: Unload any non ContentManager content here
         }
 
         /// <summary>
@@ -85,7 +78,7 @@ namespace Arkanoid_3
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.SaddleBrown);
 
             _currentState.Draw(gameTime, spriteBatch); 
 
