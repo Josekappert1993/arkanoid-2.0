@@ -17,8 +17,6 @@ public class Block
     public Block(Color color)
 	{
         setMaxHits(color);
-
-
     }
 
     public void setMaxHits(Color color)

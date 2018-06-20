@@ -21,7 +21,7 @@ namespace Arkanoid_3.States
 
             var backGameButton = new Button(buttontexture, buttonFont)
             {
-                Position = new Vector2(150, 340),
+                Position = new Vector2(800, 650),
                 Text = "Back",
             };
             backGameButton.Click += BackGameButton_Click;
