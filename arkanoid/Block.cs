@@ -1,70 +1,71 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-public enum Color { Black, Yellow, Blue, Green, Purple };
-public class Block
+namespace Arkanoid1
 {
-    protected string textureName = "";
-    protected Texture2D texture;
-    protected Game game;
-    private int hitCount;
-    private int maxHits;
-    Color _color;
-
-    public Block(Color color)
-	{
-        setMaxHits(color);
+    public enum BlockColor
+    {
+        Red = 0,
+        Yellow,
+        Blue,
+        Green,
+        Purple,
+        GreyHi,
+        Grey
     }
 
-    public void setMaxHits(Color color)
+    public class Block : GameObject
     {
-        color = setColor(color);
-        switch (color) {
-            case Black:
-                maxHits = 1;
-                break;
-            case Yellow:
-                maxHits = 8;
-                break;
-            case Blue:
-                maxHits = 3;
-                break;
-            case Green:
-                maxHits = 2;
-                break;
-            case Purple:
-                maxHits = 6;
-                break;
-            
+        BlockColor color;
+        public Block(BlockColor myColor, Game myGame) :
+            base(myGame)
+        {
+            color = myColor;
+            switch (color)
+            {
+                case (BlockColor.Red):
+                    textureName = "block_red";
+                    break;
+                case (BlockColor.Yellow):
+                    textureName = "block_yellow";
+                    break;
+                case (BlockColor.Blue):
+                    textureName = "block_blue";
+                    break;
+                case (BlockColor.Green):
+                    textureName = "block_green";
+                    break;
+                case (BlockColor.Purple):
+                    textureName = "block_purple";
+                    break;
+                case (BlockColor.GreyHi):
+                    textureName = "block_grey_hi";
+                    break;
+                case (BlockColor.Grey):
+                    textureName = "block_grey";
+                    break;
+            }
         }
-       
-    }
 
-    public int getMaxHits()
-    {
-        return maxHits;
-    }
-
-    public void setColor(Color blockColor)
-    {
-        _color = blockColor;
-    }
-
-    public Color getColor()
-    {
-        return _color;
-    }
-
-    public void addHit()
-    {
-        hitCount += 1;
-    }
-
-    public string getUpgrade()
-    {
-        return null;
+        public bool OnHit()
+        {
+            if (color != BlockColor.GreyHi)
+            {
+                return true;
+            }
+            else
+            {
+                color = BlockColor.Grey;
+                textureName = "block_grey";
+                texture = game.Content.Load<Texture2D>(textureName);
+                return false;
+            }
+        }
     }
 }
