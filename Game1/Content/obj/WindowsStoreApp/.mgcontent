@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>WindowsStoreApp</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/ball.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/bg.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/block_blue.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/block_green.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/block_grey.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/block_grey_hi.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/block_purple.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/block_red.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/block_yellow.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/paddle.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/paddle_long.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/powerup_b.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/powerup_c.png</File>
+    <File>C:/Users/stuxl/source/repos/Game1/Game1/Content/powerup_p.png</File>
+  </SourceFiles>
+</SourceFileCollection>
