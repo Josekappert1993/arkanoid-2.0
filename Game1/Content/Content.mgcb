@@ -13,6 +13,24 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ball_bounce.xnb
+/copy:ball_bounce.xnb
+
+#begin ball_hit.xnb
+/copy:ball_hit.xnb
+
+#begin death.xnb
+/copy:death.xnb
+
+#begin main_font.xnb
+/copy:main_font.xnb
+
+#begin powerup.xnb
+/copy:powerup.xnb
+
+#begin powerup_p.xnb
+/copy:powerup_p.xnb
+
 #begin ball.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -24,24 +42,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ball.png
-
-#begin ball_bounce.xnb
-/copy:ball_bounce.xnb
-
-#begin ball_hit.xnb
-/copy:ball_hit.xnb
-
-#begin bg.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:bg.png
 
 #begin block_blue.png
 /importer:TextureImporter
@@ -127,12 +127,6 @@
 /processorParam:TextureFormat=Color
 /build:block_yellow.png
 
-#begin death.xnb
-/copy:death.xnb
-
-#begin main_font.xnb
-/copy:main_font.xnb
-
 #begin paddle.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -156,9 +150,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:paddle_long.png
-
-#begin powerup.xnb
-/copy:powerup.xnb
 
 #begin powerup_b.png
 /importer:TextureImporter
@@ -195,4 +186,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:powerup_p.png
+
+#begin bg.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:bg.png
 

@@ -12,22 +12,27 @@ namespace Game1
 {
     public class Paddle : GameObject
     {
-        public float speed = 750;
+        public float speed = 500;
+        Keys leftInput;
+        Keys rightInput;
 
-        public Paddle(Game myGame) :
+        public Paddle(Keys leftInputT, Keys rightInputT, Game myGame) :
         base(myGame)
         {
             textureName = "paddle";
+            leftInput = leftInputT;
+            rightInput = rightInputT;
         }
 
         public override void Update(float deltaTime)
         {
             KeyboardState keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Left))
+
+            if (keyState.IsKeyDown(leftInput))
             {
                 position.X -= speed * deltaTime;
             }
-            else if (keyState.IsKeyDown(Keys.Right))
+            else if (keyState.IsKeyDown(rightInput))
             {
                 position.X += speed * deltaTime;
             }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/stuxl/source/repos/Game1/Game1/Content/block_blue.png</SourceFile>
-  <SourceTime>2018-06-21T11:59:01.6263073+02:00</SourceTime>
-  <DestFile>C:/Users/stuxl/source/repos/Game1/Game1/Content/bin/WindowsStoreApp/Content/block_blue.xnb</DestFile>
-  <DestTime>2018-06-21T11:59:40.4599067+02:00</DestTime>
+  <SourceFile>D:/School/c#/arkie/Game1/Content/block_blue.png</SourceFile>
+  <SourceTime>2018-06-29T10:51:35.21173+02:00</SourceTime>
+  <DestFile>D:/School/c#/arkie/Game1/Content/bin/WindowsStoreApp/Content/block_blue.xnb</DestFile>
+  <DestTime>2018-06-29T10:52:32.7927431+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-05-16T15:57:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

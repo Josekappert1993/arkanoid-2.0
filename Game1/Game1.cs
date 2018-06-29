@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Microsoft.Xna.Framework.Input;
 
 namespace Game1
 {
@@ -16,7 +17,8 @@ namespace Game1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D bgTexture;
-        Paddle paddle;
+        Paddle paddle;  // player 1
+        Paddle paddle2; // player 2
         List<Ball> balls = new List<Ball>();
 
         SoundEffect ballBounceSFX;
@@ -33,10 +35,18 @@ namespace Game1
 
         Random random = new Random();
         double powerUpChance = 0.2;
-        bool ballCatchActive = false;
 
+        bool ballCatchActive = false;
+        bool ballCatchActive2 = false;
+
+        //player 1
         int score = 0;
         int lives = 3;
+
+        //player 2
+        int score2 = 0;
+        int lives2 = 3;
+
         bool gameOver = false;
         int pointsTilLife = 20000;
 
@@ -85,15 +95,18 @@ namespace Game1
             deathSFX = Content.Load<SoundEffect>("death");
             powerupSFX = Content.Load<SoundEffect>("powerup");
 
-            paddle = new Paddle(this);
+            paddle = new Paddle(Keys.Left,Keys.Right,this);
+            paddle2 = new Paddle(Keys.A, Keys.D,this);
+
             paddle.LoadContent();
+            paddle2.LoadContent();
+
             paddle.position = new Vector2(512, 740);
-
-
+            paddle2.position = new Vector2(512, 28);
+            
             LoadLevel("Level1.xml");
             StartLevelBreak();
-
-            // TODO: use this.Content to load your game content here
+            
         }
 
         /// <summary>
@@ -123,12 +136,21 @@ namespace Game1
                 paddle.Update(deltaTime);
                 float paddleOffset = paddle.position.X - oldX;
 
+                float oldX2 = paddle2.position.X;
+                paddle2.Update(deltaTime);
+                float paddleOffset2 = paddle2.position.X - oldX;
+
                 // Update balls
                 foreach (Ball b in balls)
                 {
                     if (b.caught)
                     {
                         b.position.X += paddleOffset;
+                    }
+
+                    if (b.caught)
+                    {
+                        b.position.X += paddleOffset2;
                     }
 
                     b.Update(deltaTime);
@@ -180,6 +202,8 @@ namespace Game1
             spriteBatch.Draw(bgTexture, new Vector2(0, 0), Color.White);
             paddle.Draw(spriteBatch);
 
+            paddle2.Draw(spriteBatch);
+
             foreach (Ball b in balls)
             {
                 b.Draw(spriteBatch);
@@ -193,11 +217,11 @@ namespace Game1
                 p.Draw(spriteBatch);
             }
             spriteBatch.DrawString(font, String.Format("Score: {0:#,###0}", score),
-                new Vector2(40, 50), Color.White);
+                new Vector2(40, 10), Color.White);
 
             string livesText = String.Format("Lives: {0}", lives);
             Vector2 strSize = font.MeasureString(livesText);
-            Vector2 strLoc = new Vector2(984, 50);
+            Vector2 strLoc = new Vector2(984, 10);
             strLoc.X -= strSize.X;
             spriteBatch.DrawString(font, livesText, strLoc, Color.White);
 
@@ -224,7 +248,7 @@ namespace Game1
 
             spriteBatch.End();
             base.Draw(gameTime);
-            
+
         }
 
         protected void CheckCollisions(Ball ball)
@@ -293,7 +317,7 @@ namespace Game1
                         ball.direction = new Vector2(-0.423f, -0.906f);
                     }
                 }
-
+                
                 // No collisions between ball and paddle for 20 frames
                 ball.withPaddle = 20;
                 ballBounceSFX.Play();
@@ -497,7 +521,7 @@ namespace Game1
                     {
                         Block tempBlock = new Block((BlockColor)level.layout[i][j], this);
                         tempBlock.LoadContent();
-                        tempBlock.position = new Vector2(64 + j * 64, 100 + i * 32);
+                        tempBlock.position = new Vector2(64 + j * 64, 300 + i * 32);
                         blocks.Add(tempBlock);
                     }
                 }
