@@ -219,11 +219,22 @@ namespace Game1
             spriteBatch.DrawString(font, String.Format("Score: {0:#,###0}", score),
                 new Vector2(40, 10), Color.White);
 
+            spriteBatch.DrawString(font, String.Format("Score: {0:#,###0}", score2),
+                new Vector2(40, 743), Color.White);
+
+            //lives player 1
             string livesText = String.Format("Lives: {0}", lives);
             Vector2 strSize = font.MeasureString(livesText);
             Vector2 strLoc = new Vector2(984, 10);
             strLoc.X -= strSize.X;
             spriteBatch.DrawString(font, livesText, strLoc, Color.White);
+
+            //lives player 2
+            string livesText2 = String.Format("Lives: {0}", lives2);
+            Vector2 strSize2 = font.MeasureString(livesText2);
+            Vector2 strLoc2 = new Vector2(984, 743);
+            strLoc2.X -= strSize2.X;
+            spriteBatch.DrawString(font, livesText2, strLoc2, Color.White);
 
             if (inLevelBreak)
             {
